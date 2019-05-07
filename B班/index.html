@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新视野自主学习</title>
+    <style>
+        .container{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .box{
+            width: 300px;
+            height: 25px;
+            line-height: 25px;
+            margin-top: 10px;
+        }
+        .select{
+            width: 100px;
+            height: 25px;
+            line-height: 25px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        .button{
+            margin-top: 10px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <input type="text" class="box" v-model='userName' placeholder="用户名">
+            <input type="text" class="box" v-model='passWord' placeholder="密码">
+            <select v-model="selected" class="select">
+                <option v-for="option in options" v-bind:value="option.value">
+                    {{ option.text }}
+                </option>
+            </select>
+            <button class="button" v-on:click='submit'>提交</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                userName: '',
+                passWord: '',
+                selected: '1',
+                options: [
+                    { text: '第一册', value: '1' },
+                    { text: '第二册', value: '2' },
+                    { text: '第三册', value: '3' },
+                    { text: '第四册', value: '4' }
+                ]
+            },
+            methods: {
+                submit() {
+                    if (!this.userName) {
+                        alert('请输入账号')
+                        return;
+                    } else if (!this.passWord) {
+                        alert('请输入密码')
+                        return;
+                    } else if (!this.selected) {
+                        alert('请选择册数')
+                        return;
+                    }
+                    let info = {
+                        userName: this.userName,
+                        passWord: this.passWord,
+                        selected: this.selected
+                    }
+                    axios.post('/getInfo', info).then(res => {
+                        console.log(res);
+                        if (res.data === 'no') {
+                            alert('请联系开发者！')
+                        }
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
