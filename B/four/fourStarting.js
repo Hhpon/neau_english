@@ -23,8 +23,8 @@ async function fourStarting(username, password) {
   console.log(cookiePath);
   let cookie = cookiePath.cookie;
   let path = cookiePath.path;
-  // await unit1(cookie, path);
-  // await this.wait;
+  await unit1(cookie, path);
+  await this.wait;
   await unit2(cookie, path);
   await this.wait;
   await unit3(cookie, path);
