@@ -1,8 +1,8 @@
 const request = require('request');
 const cheerio = require('cheerio');
-const fs = require('fs');
 const signin = require('./signin.js');
 const wait = require('./wait.js');
+const WHERE_PART = 'unit2';
 
 // 做题前准备1 
 function ready1(cookie, path) {
@@ -41,7 +41,7 @@ function ready2(cookie) {
 function getSuccessPage(cookie) {
   return new Promise(function (resolve, rejsct) {
     request({
-      url: 'http://202.118.163.67/book/book144/unit_index.php?UnitID=1',
+      url: 'http://202.118.163.67/book/book144/unit_index.php?UnitID=2',
       headers: {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
         'Accept-Encoding': 'gzip, deflate',
@@ -60,93 +60,8 @@ function getSuccessPage(cookie) {
 }
 
 
-// 第一单元第二模块第1题实际开始做
+// 第2单元第二模块第1题实际开始做
 function section2sister1S(cookie) {
-  return new Promise(function (resolve, reject) {
-    request({
-      url: 'http://202.118.163.67/book/book144/uyu23drag.php',
-      method: 'POST',
-      headers: {
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Encoding': 'gzip, deflate',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        'Cache-Control': 'no-cache',
-        Connection: 'keep-alive',
-        'Content-Length': 93,
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Cookie: cookie,
-        Host: '202.118.163.67',
-        Origin: 'http://202.118.163.67',
-        Pragma: 'no-cache',
-        'Upgrade-Insecure-Requests': 1,
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36'
-      },
-      form: {
-        UnitID: 1,
-        SectionID: 2,
-        SisterID: 3,
-        TestID: 2.3,
-        KidID: 1,
-        ItemID: 78,
-        myList: '1^4^5^3^2^0',
-      }
-    }, (err, res, html) => {
-      // console.log(html);
-      // fs.writeFileSync('index.html',html);
-      $ = cheerio.load(html);
-      var res = $('.dwt>p').text().trim();
-      if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
-        reject('由于网络或端口问题，程序已经停止运行！');
-        return;
-      }
-      console.log(res);
-      resolve('ok');
-    });
-  })
-}
-
-// 第一单元第二模块第2题实际开始做
-function section2sister2S(cookie) {
-  return new Promise(function (resolve, reject) {
-    request({
-      url: 'http://202.118.163.67/book/book144/uyu522checkbox.php',
-      method: 'POST',
-      headers: {
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Encoding': 'gzip, deflate',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        Cookie: cookie,
-        Host: '202.118.163.67',
-        Origin: 'http://202.118.163.67',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
-      },
-      form: {
-        UnitID: 1,
-        SectionID: 2,
-        SisterID: 4,
-        TestID: 2.4,
-        KidID: 1,
-        ItemID: 58,
-        'Checkbox_1': 1,
-        'Checkbox_3': 1,
-      }
-    }, (err, res, html) => {
-      $ = cheerio.load(html);
-      var res = $('.dwt>p').text().trim();
-      if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
-        reject('由于网络或端口问题，程序已经停止运行！');
-        return;
-      }
-      console.log(res);
-      resolve('ok');
-    });
-  })
-}
-
-// 第一单元第二模块第3题实际开始做
-function section2sister3S(cookie) {
   return new Promise(function (resolve, reject) {
     request({
       url: 'http://202.118.163.67/book/book144/uyu21blank.php',
@@ -161,26 +76,23 @@ function section2sister3S(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
+        UnitID: 2,
         SectionID: 2,
-        SisterID: 5,
-        TestID: 2.5,
+        SisterID: 2,
+        TestID: 2.2,
         KidID: 1,
-        ItemID: 18,
-        'Blank_0_0': 'anti-social',
-        'Blank_0_1': 'aware of',
-        'Blank_1_0': 'appreciate',
-        'Blank_1_1': 'attitude',
-        'Blank_2_0': 'tolerant',
-        'Blank_2_1': 'come to an end',
-        'Blank_2_2': 'walk away',
-        'Blank_3_0': 'impress'
+        ItemID: 19,
+        'Blank_0_0': 'excited',
+        'Blank_0_1': 'on the banks',
+        'Blank_0_2': 'beach parties',
+        'Blank_0_3': 'find out',
+        'Blank_0_4': 'looking forward to',
       }
     }, (err, res, html) => {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -190,11 +102,11 @@ function section2sister3S(cookie) {
   })
 }
 
-// 第一单元第二模块第4题实际开始做
-function section2sister4S(cookie) {
+// 第2单元第二模块第2题实际开始做
+function section2sister2S(cookie) {
   return new Promise(function (resolve, reject) {
     request({
-      url: 'http://202.118.163.67/book/book144/uyu211checkboxTable.php',
+      url: 'http://202.118.163.67/book/book144/uyu23drag.php',
       method: 'POST',
       headers: {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -206,25 +118,19 @@ function section2sister4S(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
+        UnitID: 2,
         SectionID: 2,
-        SisterID: 10,
-        TestID: 2.10,
+        SisterID: 3,
+        TestID: 2.3,
         KidID: 1,
-        ItemID: 194,
-        'Checkbox_0_1': 1,
-        'Checkbox_1_2': 1,
-        'Checkbox_2_2': 1,
-        'Checkbox_3_2': 1,
-        'Checkbox_4_2': 1,
-        'Checkbox_5_1': 1,
-        'Checkbox_6_2': 1
+        ItemID: 79,
+        myList: '5^0^3^2^4^1',
       }
     }, (err, res, html) => {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -234,60 +140,8 @@ function section2sister4S(cookie) {
   })
 }
 
-// 第一单元第二模块第5题实际开始做
-function section2sister5S(cookie) {
-  return new Promise(function (resolve, reject) {
-    request({
-      url: 'http://202.118.163.67/book/book144/uyu29blank.php',
-      method: 'POST',
-      headers: {
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Encoding': 'gzip, deflate',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        Cookie: cookie,
-        Host: '202.118.163.67',
-        Origin: 'http://202.118.163.67',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
-      },
-      form: {
-        UnitID: 1,
-        SectionID: 2,
-        SisterID: 11,
-        TestID: 2.11,
-        KidID: 1,
-        ItemID: 200,
-        'Blank_0_0': 'peaceful',
-        'Blank_0_1': 'beautiful',
-        'Blank_0_2': 'lovely part',
-        'Blank_0_3': 'party',
-        'Blank_0_4': 'with a passion',
-        'Blank_0_5': 'last second',
-        'Blank_0_6': 'walking their dogs',
-        'Blank_0_7': 'with a bounce',
-        'Blank_0_8': 'away',
-        'Blank_0_9': 'the best part of the day',
-        'Blank_0_10': 'thinking straight',
-        'Blank_0_11': 'at my sharpest',
-        'Blank_0_12': 'we had children',
-        'Blank_0_13': 'in the mornings',
-        'Blank_0_14': 'in the evenings',
-      }
-    }, (err, res, html) => {
-      $ = cheerio.load(html);
-      var res = $('.dwt>p').text().trim();
-      if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
-        reject('由于网络或端口问题，程序已经停止运行！');
-        return;
-      }
-      console.log(res);
-      resolve('ok');
-    });
-  })
-}
-
-// 第一单元第二模块第6题实际开始做
-function section2sister6S(cookie) {
+// 第2单元第二模块第3题实际开始做
+function section2sister3S(cookie) {
   return new Promise(function (resolve, reject) {
     request({
       url: 'http://202.118.163.67/book/book144/uyu522checkbox.php',
@@ -302,20 +156,23 @@ function section2sister6S(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
+        UnitID: 2,
         SectionID: 2,
-        SisterID: 16,
-        TestID: 2.16,
+        SisterID: 4,
+        TestID: 2.4,
         KidID: 1,
-        ItemID: 59,
+        ItemID: 60,
+        'Checkbox_0': 1,
         'Checkbox_1': 1,
-        'Checkbox_3': 1,
+        'Checkbox_2': 1,
+        'Checkbox_7': 1,
+        'Checkbox_9': 1,
       }
     }, (err, res, html) => {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -325,11 +182,10 @@ function section2sister6S(cookie) {
   })
 }
 
-// 第一单元第二模块第7题实际开始做
-function section2sister7S(cookie) {
+function section2sister4S(cookie) {
   return new Promise(function (resolve, reject) {
     request({
-      url: 'http://202.118.163.67/book/book144/uyu29drag.php',
+      url: 'http://202.118.163.67/book/book144/uyu522checkbox.php',
       method: 'POST',
       headers: {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -341,19 +197,21 @@ function section2sister7S(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
-        SectionID: 3,
-        SisterID: 4,
-        TestID: 3.4,
+        UnitID: 2,
+        SectionID: 2,
+        SisterID: 5,
+        TestID: 2.5,
         KidID: 1,
-        ItemID: 204,
-        myList: '6^0^5^7^1^3^2^4'
+        ItemID: 62,
+        'Checkbox_0': 1,
+        'Checkbox_1': 1,
+        'Checkbox_3': 1,
       }
     }, (err, res, html) => {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -363,8 +221,229 @@ function section2sister7S(cookie) {
   })
 }
 
-// 第一单元第二模块第8题实际开始做
+function section2sister5S(cookie) {
+  return new Promise(function (resolve, reject) {
+    request({
+      url: 'http://202.118.163.67/book/book144/uyu211checkboxTable.php',
+      method: 'POST',
+      headers: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        Cookie: cookie,
+        Host: '202.118.163.67',
+        Origin: 'http://202.118.163.67',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+      },
+      form: {
+        UnitID: 2,
+        SectionID: 2,
+        SisterID: 9,
+        TestID: 2.9,
+        KidID: 1,
+        ItemID: 207,
+        'Checkbox_0_2': 1,
+        'Checkbox_1_1': 1,
+        'Checkbox_2_1': 1,
+        'Checkbox_3_1': 1,
+        'Checkbox_4_1': 1,
+        'Checkbox_5_2': 1,
+      }
+    }, (err, res, html) => {
+      $ = cheerio.load(html);
+      var res = $('.dwt>p').text().trim();
+      if (res.indexOf('Done with this activity.') == -1) {
+        console.log(WHERE_PART);
+        reject('由于网络或端口问题，程序已经停止运行！');
+        return;
+      }
+      console.log(res);
+      resolve('ok');
+    });
+  })
+}
+
+function section2sister6S(cookie) {
+  return new Promise(function (resolve, reject) {
+    request({
+      url: 'http://202.118.163.67/book/book144/uyu29blank.php',
+      method: 'POST',
+      headers: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        Cookie: cookie,
+        Host: '202.118.163.67',
+        Origin: 'http://202.118.163.67',
+        'Upgrade-Insecure-Requests': 1,
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+      },
+      form: {
+        UnitID: 2,
+        SectionID: 2,
+        SisterID: 10,
+        TestID: 2.10,
+        KidID: 1,
+        ItemID: 209,
+        'Blank_0_0': 'Thursday,20/5/2004',
+        'Blank_0_1': '16',
+        'Blank_0_2': '20',
+        'Blank_0_3': 'by the river',
+        'Blank_0_4': 'raining',
+        'Blank_0_5': 'fancied',
+        'Blank_0_6': 'have the guts to tell him',
+        'Blank_0_7': 'good-looking, romantic and intelligent',
+        'Blank_0_8': '3 children',
+        'Blank_0_9': "I'm happy",
+        'Blank_0_10': 'feel good about who I was',
+        'Blank_0_11': 'Good luck for the future',
+        'Blank_0_12': 'be happy with who you are'
+      }
+    }, (err, res, html) => {
+      $ = cheerio.load(html);
+      console.log(html);
+      var res = $('.dwt>p').text().trim();
+      if (res.indexOf('Done with this activity.') == -1) {
+        console.log(WHERE_PART);
+        reject('由于网络或端口问题，程序已经停止运行！');
+        return;
+      }
+      console.log(res);
+      resolve('ok');
+    });
+  })
+}
+
+function section2sister7S(cookie) {
+  return new Promise(function (resolve, reject) {
+    request({
+      url: 'http://202.118.163.67/book/book144/uyu522checkbox.php',
+      method: 'POST',
+      headers: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        Cookie: cookie,
+        Host: '202.118.163.67',
+        Origin: 'http://202.118.163.67',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+      },
+      form: {
+        UnitID: 2,
+        SectionID: 2,
+        SisterID: 15,
+        TestID: 2.15,
+        KidID: 1,
+        ItemID: 63,
+        'Checkbox_2': 1,
+        'Checkbox_5': 1,
+      }
+    }, (err, res, html) => {
+      $ = cheerio.load(html);
+      var res = $('.dwt>p').text().trim();
+      if (res.indexOf('Done with this activity.') == -1) {
+        console.log(WHERE_PART);
+        reject('由于网络或端口问题，程序已经停止运行！');
+        return;
+      }
+      console.log(res);
+      resolve('ok');
+    });
+  })
+}
+
 function section2sister8S(cookie) {
+  return new Promise(function (resolve, reject) {
+    request({
+      url: 'http://202.118.163.67/book/book144/uyu21blank.php',
+      method: 'POST',
+      headers: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        Cookie: cookie,
+        Host: '202.118.163.67',
+        Origin: 'http://202.118.163.67',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+      },
+      form: {
+        UnitID: 2,
+        SectionID: 2,
+        SisterID: 16,
+        TestID: 2.16,
+        KidID: 1,
+        ItemID: 21,
+        'Blank_0_0': 'the longest-living communities',
+        'Blank_0_1': '900',
+        'Blank_0_2': 'go about their business',
+        'Blank_0_3': 'fruit and vegetable',
+        'Blank_0_4': 'ingredients',
+        'Blank_0_5': 'cell damage',
+        'Blank_0_6': 'high quantities',
+        'Blank_0_7': 'health protective',
+        'Blank_0_8': '1,200',
+        'Blank_0_9': '20 percent less',
+        'Blank_0_10': 'getting more for their money',
+        'Blank_0_11': "health's worth",
+      }
+    }, (err, res, html) => {
+      $ = cheerio.load(html);
+      var res = $('.dwt>p').text().trim();
+      if (res.indexOf('Done with this activity.') == -1) {
+        console.log(WHERE_PART);
+        reject('由于网络或端口问题，程序已经停止运行！');
+        return;
+      }
+      console.log(res);
+      resolve('ok');
+    });
+  })
+}
+
+function section2sister9S(cookie) {
+  return new Promise(function (resolve, reject) {
+    request({
+      url: 'http://202.118.163.67/book/book144/uyu34checkbox.php',
+      method: 'POST',
+      headers: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        Cookie: cookie,
+        Host: '202.118.163.67',
+        Origin: 'http://202.118.163.67',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+      },
+      form: {
+        UnitID: 2,
+        SectionID: 3,
+        SisterID: 4,
+        TestID: 3.4,
+        KidID: 1,
+        ItemID: 213,
+        'Checkbox_0': 1,
+        'Checkbox_2': 1,
+        'Checkbox_3': 1,
+        'Checkbox_4': 1,
+        'Checkbox_6': 1,
+        'Checkbox_7': 1,
+        'Checkbox_9': 1,
+      }
+    }, (err, res, html) => {
+      $ = cheerio.load(html);
+      var res = $('.dwt>p').text().trim();
+      if (res.indexOf('Done with this activity.') == -1) {
+        console.log(WHERE_PART);
+        reject('由于网络或端口问题，程序已经停止运行！');
+        return;
+      }
+      console.log(res);
+      resolve('ok');
+    });
+  })
+}
+
+function section2sister10S(cookie) {
   return new Promise(function (resolve, reject) {
     request({
       url: 'http://202.118.163.67/book/book144/uyu41mc.php',
@@ -379,24 +458,24 @@ function section2sister8S(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
+        UnitID: 2,
         SectionID: 4,
         SisterID: 1,
         TestID: 4.1,
         KidID: 1,
-        ItemID: 460,
+        ItemID: 312,
         whichKidID: 5,
-        'Radio_0': 'd',
-        'Radio_1': 'a',
-        'Radio_2': 'b',
-        'Radio_3': 'c',
-        'Radio_4': 'c',
+        'Radio_0': 'a',
+        'Radio_1': 'd',
+        'Radio_2': 'c',
+        'Radio_3': 'b',
+        'Radio_4': 'd',
       }
     }, (err, res, html) => {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -406,8 +485,7 @@ function section2sister8S(cookie) {
   })
 }
 
-// 第一单元第二模块第9题实际开始做
-function section2sister9S(cookie) {
+function section2sister11S(cookie) {
   return new Promise(function (resolve, reject) {
     request({
       url: 'http://202.118.163.67/book/book144/uyu42mc.php',
@@ -422,14 +500,54 @@ function section2sister9S(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
+        UnitID: 2,
         SectionID: 4,
         SisterID: 2,
         TestID: 4.2,
         KidID: 1,
-        ItemID: 322,
+        ItemID: 457,
         'Radio_0': 'c',
         'Radio_1': 'b',
+        'Radio_2': 'a',
+        'Radio_3': 'd',
+      }
+    }, (err, res, html) => {
+      $ = cheerio.load(html);
+      var res = $('.dwt>p').text().trim();
+      if (res.indexOf('Done with this activity.') == -1) {
+        console.log(WHERE_PART);
+        reject('由于网络或端口问题，程序已经停止运行！');
+        return;
+      }
+      console.log(res);
+      resolve('ok');
+    });
+  })
+}
+
+function section2sister12S(cookie) {
+  return new Promise(function (resolve, reject) {
+    request({
+      url: 'http://202.118.163.67/book/book144/uyu42mc.php',
+      method: 'POST',
+      headers: {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Encoding': 'gzip, deflate',
+        'Accept-Language': 'zh-CN,zh;q=0.9',
+        Cookie: cookie,
+        Host: '202.118.163.67',
+        Origin: 'http://202.118.163.67',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
+      },
+      form: {
+        UnitID: 2,
+        SectionID: 4,
+        SisterID: 3,
+        TestID: 4.3,
+        KidID: 1,
+        ItemID: 332,
+        'Radio_0': 'b',
+        'Radio_1': 'c',
         'Radio_2': 'd',
         'Radio_3': 'a',
       }
@@ -437,7 +555,7 @@ function section2sister9S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -447,49 +565,7 @@ function section2sister9S(cookie) {
   })
 }
 
-// 第一单元第二模块第10题实际开始做
-function section2sister10S(cookie) {
-  return new Promise(function (resolve, reject) {
-    request({
-      url: 'http://202.118.163.67/book/book144/uyu42mc.php',
-      method: 'POST',
-      headers: {
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Encoding': 'gzip, deflate',
-        'Accept-Language': 'zh-CN,zh;q=0.9',
-        Cookie: cookie,
-        Host: '202.118.163.67',
-        Origin: 'http://202.118.163.67',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
-      },
-      form: {
-        UnitID: 1,
-        SectionID: 4,
-        SisterID: 3,
-        TestID: 4.3,
-        KidID: 1,
-        ItemID: 331,
-        'Radio_0': 'a',
-        'Radio_1': 'c',
-        'Radio_2': 'd',
-        'Radio_3': 'c',
-      }
-    }, (err, res, html) => {
-      $ = cheerio.load(html);
-      var res = $('.dwt>p').text().trim();
-      if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
-        reject('由于网络或端口问题，程序已经停止运行！');
-        return;
-      }
-      console.log(res);
-      resolve('ok');
-    });
-  })
-}
-
-// 第一单元第二模块第11题实际开始做
-function section2sister11S(cookie) {
+function section2sister13S(cookie) {
   return new Promise(function (resolve, reject) {
     request({
       url: 'http://202.118.163.67/book/book144/uyu44blank.php',
@@ -504,28 +580,28 @@ function section2sister11S(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
+        UnitID: 2,
         SectionID: 4,
         SisterID: 4,
         TestID: 4.4,
         KidID: 1,
-        ItemID: 339,
-        'Blank_0_0': 'distressing',
-        'Blank_0_1': 'desperate',
-        'Blank_0_2': 'urge',
-        'Blank_0_3': 'acquire',
-        'Blank_0_4': 'are totally unaware of ',
-        'Blank_0_5': 'are isolated from',
-        'Blank_0_6': 'affirm',
-        'Blank_0_7': 'interact with',
-        'Blank_0_8': 'impulse',
-        'Blank_0_9': 'are convinced of',
+        ItemID: 340,
+        'Blank_0_0': 'proportion',
+        'Blank_0_1': 'estimated',
+        'Blank_0_2': 'have profound impacts on',
+        'Blank_0_3': 'potential',
+        'Blank_0_4': 'economically',
+        'Blank_0_5': 'pensions',
+        'Blank_0_6': 'originate from',
+        'Blank_0_7': 'residential',
+        'Blank_0_8': 'poses a challenge to',
+        'Blank_0_9': 'be transformed into',
       }
     }, (err, res, html) => {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -535,8 +611,7 @@ function section2sister11S(cookie) {
   })
 }
 
-// 第一单元第二模块第12题实际开始做
-function section2sister12S(cookie) {
+function section2sister14S(cookie) {
   return new Promise(function (resolve, reject) {
     request({
       url: 'http://202.118.163.67/book/book144/uyu45mc.php',
@@ -551,20 +626,20 @@ function section2sister12S(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
+        UnitID: 2,
         SectionID: 4,
         SisterID: 5,
         TestID: 4.5,
         KidID: 1,
-        ItemID: 461,
+        ItemID: 463,
         'Radio_0': 'b',
-        'Radio_1': 'c',
+        'Radio_1': 'd',
       }
     }, (err, res, html) => {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -574,8 +649,7 @@ function section2sister12S(cookie) {
   })
 }
 
-// 第一单元第二模块第13题实际开始做
-function section2sister13S(cookie) {
+function section2sister15S(cookie) {
   return new Promise(function (resolve, reject) {
     request({
       url: 'http://202.118.163.67/book/book144/uyu45mc.php',
@@ -590,21 +664,21 @@ function section2sister13S(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
+        UnitID: 2,
         SectionID: 4,
         SisterID: 6,
         TestID: 4.6,
         KidID: 1,
-        ItemID: 462,
+        ItemID: 464,
         'Radio_0': 'b',
-        'Radio_1': 'a',
+        'Radio_1': 'd',
         'Radio_2': 'c',
       }
     }, (err, res, html) => {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -614,7 +688,6 @@ function section2sister13S(cookie) {
   })
 }
 
-// 第一单元test实际开始做
 function test(cookie) {
   return new Promise(function (resolve, reject) {
     request({
@@ -630,43 +703,43 @@ function test(cookie) {
         'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.94 Safari/537.36'
       },
       form: {
-        UnitID: 1,
+        UnitID: 2,
         SectionID: 7,
         SisterID: 2,
         TestID: 7.2,
         KidID: 1,
-        ItemID: 135,
-        'MC_441_0': 'd',
-        'MC_441_1': 'd',
-        'MC_441_2': 'b',
-        'MC_441_3': 'c',
-        'MC_441_4': 'd',
-        'MC_449_0': 'c',
-        'MC_449_1': 'a',
-        'MC_449_2': 'a',
-        'MC_449_3': 'a',
-        'MC_449_4': 'd',
-        'MC_127_0': 'c',
-        'MC_127_1': 'b',
-        'MC_127_2': 'd',
-        'MC_127_3': 'd',
-        'MC_127_4': 'c',
-        'Blank_135_0_0': 'at',
-        'Blank_135_0_1': 'section',
-        'Blank_135_0_2': 'connects',
-        'Blank_135_0_3': 'at the bottom of',
-        'Blank_135_0_4': 'shining',
-        'Blank_135_0_5': 'As',
-        'Blank_135_0_6': 'cross',
-        'Blank_135_0_7': 'running away from',
-        'Blank_135_0_8': 'streaming down',
-        'Blank_135_0_9': 'destroyed',
+        ItemID: 136,
+        'MC_442_0': 'b',
+        'MC_442_1': 'd',
+        'MC_442_2': 'c',
+        'MC_442_3': 'b',
+        'MC_442_4': 'c',
+        'MC_450_0': 'd',
+        'MC_450_1': 'c',
+        'MC_450_2': 'c',
+        'MC_450_3': 'b',
+        'MC_450_4': 'a',
+        'MC_128_0': 'b',
+        'MC_128_1': 'c',
+        'MC_128_2': 'a',
+        'MC_128_3': 'a',
+        'MC_128_4': 'd',
+        'Blank_136_0_0': 'launched',
+        'Blank_136_0_1': 'corner',
+        'Blank_136_0_2': 'bankruptcy',
+        'Blank_136_0_3': 'virtually',
+        'Blank_136_0_4': 'directing',
+        'Blank_136_0_5': 'discharged from',
+        'Blank_136_0_6': 'secured',
+        'Blank_136_0_7': 'substantial',
+        'Blank_136_0_8': 'Not surprisingly',
+        'Blank_136_0_9': 'fashion accessories',
       }
     }, (err, res, html) => {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit1');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -677,12 +750,12 @@ function test(cookie) {
 }
 
 
-
-async function unit1(cookie, path) {
-  // var cookie = await signin();
+async function unit2(cookie, path) {
+  // let cookie = await signin();
   await ready1(cookie, path);
   await ready2(cookie);
   await getSuccessPage(cookie);
+  await wait();
   await section2sister1S(cookie);
   await wait();
   await section2sister2S(cookie);
@@ -692,8 +765,8 @@ async function unit1(cookie, path) {
   await section2sister4S(cookie);
   await wait();
   await section2sister5S(cookie);
-  await wait();
-  await section2sister6S(cookie);
+  // await wait();
+  // await section2sister6S(cookie);
   await wait();
   await section2sister7S(cookie);
   await wait();
@@ -709,9 +782,13 @@ async function unit1(cookie, path) {
   await wait();
   await section2sister13S(cookie);
   await wait();
+  await section2sister14S(cookie);
+  await wait();
+  await section2sister15S(cookie);
+  await wait();
   await test(cookie);
-  console.log('unit1 successful');
+  console.log('unit2 successful');
 }
 
-// unit1();
-module.exports = unit1;
+// unit2();
+module.exports = unit2;

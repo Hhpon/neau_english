@@ -2,6 +2,7 @@ const request = require('request');
 const cheerio = require('cheerio');
 const signin = require('./signin.js');
 const wait = require('./wait.js');
+const WHERE_PART = 'unit5';
 
 // 做题前准备1 
 function ready1(cookie, path) {
@@ -84,7 +85,7 @@ function section2sister1S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -124,7 +125,7 @@ function section2sister2S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -171,7 +172,7 @@ function section2sister3S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -210,7 +211,7 @@ function section2sister4S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -267,7 +268,7 @@ function section2sister5S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -306,7 +307,7 @@ function section2sister6S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -358,7 +359,7 @@ function section2sister7S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -395,7 +396,7 @@ function section2sister8S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -448,7 +449,7 @@ function section2sister9S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -491,7 +492,7 @@ function section2sister10S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -540,7 +541,7 @@ function section2sister11S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -582,7 +583,7 @@ function section2sister12S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -622,7 +623,7 @@ function section2sister13S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -662,7 +663,7 @@ function section2sister14S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -708,7 +709,7 @@ function section2sister15S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -746,7 +747,7 @@ function section2sister16S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -785,7 +786,7 @@ function section2sister17S(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
@@ -846,7 +847,7 @@ function test(cookie) {
       $ = cheerio.load(html);
       var res = $('.dwt>p').text().trim();
       if (res.indexOf('Done with this activity.') == -1) {
-        console.log('unit5');
+        console.log(WHERE_PART);
         reject('由于网络或端口问题，程序已经停止运行！');
         return;
       }
